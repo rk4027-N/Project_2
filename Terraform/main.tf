@@ -37,7 +37,7 @@ resource "aws_instance" "web_instance" {
   ami             = "ami-0e35ddab05955cf57" # Use a proper AMI ID here
   instance_type   = "t2.micro"
   subnet_id       = aws_subnet.subnet_1.id
-  security_groups = [aws_security_group.allow_http.name]
+  vpc_security_group_ids = [aws_security_group.allow_http.id]  
   user_data = <<-EOF
               #!/bin/bash
               echo "Hello, World" > /var/www/html/index.html
