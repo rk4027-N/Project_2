@@ -13,7 +13,6 @@ pipeline {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-devops-creds']]) {
                     dir('Terraform') {
                         sh 'terraform init'
-                        sh 'terraform plan'
                         sh 'terraform apply -auto-approve'
                     }
                 }
